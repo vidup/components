@@ -1,6 +1,6 @@
 import React from 'react';
 import "./styles.css";
-import { Table1, Column } from './Table1';
+import { Table1, Column, Cell } from './Table1';
 
 import { users } from '../../data';
 class TablesIndex extends React.PureComponent {
@@ -11,13 +11,28 @@ class TablesIndex extends React.PureComponent {
           numRows={users.length}
         >
           <Column
+            name="id"
             renderCell={this.renderCell("id")}
           />
           <Column
+            name="Prénom"
             renderCell={this.renderCell("first_name")}
           />
           <Column
+            name="Nom de famille"
             renderCell={this.renderCell("last_name")}
+          />
+          <Column
+            name="email"
+            renderCell={this.renderCell("email")}
+          />
+          <Column
+            name="gender"
+            renderCell={this.renderCell("gender")}
+          />
+          <Column
+            name="ip_address"
+            renderCell={this.renderCell("ip_address")}
           />
         </Table1>
       </div>
@@ -25,7 +40,14 @@ class TablesIndex extends React.PureComponent {
   }
 
   renderCell = (target) => (index) => {
-    return users[index][target];
+    return (
+      <Cell
+        key={index}
+        center={["id", "gender", "ip_address"].includes(target)}
+      >
+        {users[index][target]}
+      </Cell>
+    );
   }
 }
 

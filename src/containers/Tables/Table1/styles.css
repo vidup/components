@@ -1,4 +1,51 @@
 .table {
   display: flex;
   justify-content: flex-start;
+  overflow: scroll;
+  height: 500px;
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: auto;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+.column:first-of-type {
+  border-left: 1px solid #ccc;
+}
+
+.column .header {
+  border-bottom: 1px solid #ccc;
+  background-color: #ccc;
+  border-left: 1px solid black;
+  border-right: 1px solid #ccc;
+  padding: 2px;
+}
+
+/* .column:first-of-type .header {
+  border-left: 1px solid #ccc;
+}
+
+.column:last-of-type .header {
+  border-right: 1px solid #ccc;
+} */
+
+
+.cell {
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  height: 25px;
+  width: auto;
+  text-align: left;
+  padding: 5px;
+}
+
+.center {
+  text-align: center;
 }

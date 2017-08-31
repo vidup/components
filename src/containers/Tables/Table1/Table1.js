@@ -6,7 +6,11 @@ class Table extends React.PureComponent {
   render() {
     return (
       <div className="table">
-        {this.props.children}
+        {React.Children.map(this.props.children,
+          (child, index) => React.cloneElement(child, {
+            numRows: this.props.numRows
+          })
+        )}
       </div>
     );
   }
